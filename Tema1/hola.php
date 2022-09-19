@@ -12,7 +12,7 @@
     <p>Esto es un cuarto parrafo</p>
     <!-- Muestra una frase con PHP -->
     <?php
-    echo "Me llamo Adrián Teruel";
+        echo "Me llamo Adrián Teruel";
     ?>
 </body>
 </html> 

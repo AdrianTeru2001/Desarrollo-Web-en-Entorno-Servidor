@@ -10,6 +10,7 @@
     <p>Esto es un segundo parrafo</p>
     <p>Esto es un tercer parrafo</p>
     <p>Esto es un cuarto parrafo</p>
+    <p>Esto es un quinto parrafo</p>
     <!-- Muestra una frase con PHP -->
     <?php
         echo "Me llamo Adrián Teruel";

@@ -1,0 +1,25 @@
+<!-- EJERCICIO Nº 1
+Diseñar un formulario web que pida la altura y el diámetro de un cilindro.
+Una vez el usuario introduzca los datos y pulse el botón calcular, deberá calcularse 
+el volumen del cilindro y mostrarse el resultado en el navegador. 
+Mostrar la imagen de un cilindro junto al resultado y un título "Calculo del volúmen de un cilindro", 
+intenta dar un aspecto agradable a la página de resultado. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - 3.7</title>
+</head>
+
+<body>
+    Datos para calcular el volumen de un cilindro: <br>
+    <form action="volumen.php" method="get">
+        Altura del cilindro <input type="number" name="a"><br>
+        Diametro del cilindro <input type="number" name="d"><br>
+        <input type="submit" value="Calcular">
+    </form>
+</body>
+
+</html>

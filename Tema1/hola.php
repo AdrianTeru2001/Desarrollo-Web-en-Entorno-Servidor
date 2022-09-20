@@ -15,5 +15,9 @@
     <?php
         echo "Me llamo Adrián Teruel";
     ?>
+    <p>
+        <img src="South Park 2.jpg"/>
+    </p>
+    
 </body>
 </html> 

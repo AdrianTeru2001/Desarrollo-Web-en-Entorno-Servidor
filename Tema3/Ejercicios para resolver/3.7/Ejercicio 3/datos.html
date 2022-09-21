@@ -1,0 +1,42 @@
+<!-- EJERCICIO Nº 3
+Mostrar en una página varios parametros para configurar el aspecto de otra página: 
+color de fondo, tipo de letra, alineación del texto, imagen del banner (entre 3 posibles),
+y demás reglas de estilo que se te ocurran. Una vez la información se mostrará una página con
+el contenido que desees acorde a los estilos elegidos. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3 - 3.7</title>
+</head>
+
+<body>
+    <h1>Configuración para crear una pagina web</h1>
+    <form action="pagina.php" method="get">
+        Elija un color -> <input type="color" name="color"><br><br>
+        Elija un tipo de letra ->  
+        <select name="tipo">
+            <option value="fantasy">Fantasy</option>
+            <option value="arial">Arial</option>
+            <option value="cursive">Cursive</option>
+            <option value="sans-serif">Sans-serif</option>
+        </select><br><br>
+        Elija la alineación del texto ->  
+        <select name="alineado">
+            <option value="right">Right</option>
+            <option value="center">Center</option>
+            <option value="left">Left</option>
+        </select><br><br>
+        Elija la imagen del banner ->  
+        <select name="imagen">
+            <option value="South Park.jpg">South Park</option>
+            <option value="Perro.jpg">Perro</option>
+            <option value="Banega.jpg">Banega</option>
+        </select><br><br>
+        <input type="submit" value="Crear Página">
+    </form>
+</body>
+
+</html>

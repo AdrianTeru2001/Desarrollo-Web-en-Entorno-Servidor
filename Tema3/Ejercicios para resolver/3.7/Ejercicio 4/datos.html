@@ -1,0 +1,28 @@
+<!-- EJERCICIO Nº 4
+Diseñar un desarrollo web simple con php que pida al usuario el precio 
+de un producto en tres establecimientos distintos denominados “Tienda 1”, 
+“Tienda 2” y “Tienda 3”. Una vez se introduzca esta información se debe calcular
+y mostrar el precio medio del producto en las tres tiendas. Mostrar en la página resultado,
+una tabla con un título, el precio en cada una de las tiendas, la media de los tres precios
+y la diferencia del precio de cada tienda con la media. Combina celdas para que quede visualmente agradable. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4 - 3.7</title>
+</head>
+
+<body>
+    <h1>Tienda Disca</h1>
+    <form action="tienda.php" method="get">
+        Nombre del produto -> <input type="text" name="producto"><br><br>
+        Precio Tienda 1 -> <input type="number" name="t1"><br><br>
+        Precio Tienda 2 -> <input type="number" name="t2"><br><br>
+        Precio Tienda 3 -> <input type="number" name="t3"><br><br>
+        <input type="submit" value="Calcular Valores">
+    </form>
+</body>
+
+</html>

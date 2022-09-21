@@ -1,0 +1,30 @@
+<!-- EJERCICIO Nº 2
+Diseñar una web para jugar a la lotería primitiva. En un formulario se pedirá introducir 
+la combinación de 6 números entre 1 y 49 y el número de serie entre 1 y 999.
+Mostrar la combinación generada y la introducida por el usuario en dos 
+filas de una tabla, para que compruebe los aciertos. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - 3.7</title>
+</head>
+
+<body>
+    <h1>Loteria Primitiva</h1>
+    <h2>Introduzca los números para su cartón:</h2>
+    <form action="loteria.php" method="get">
+        Primer Número  -> <input type="number" min="1" max="49" name="n1"><br>
+        Segundo Número -> <input type="number" min="1" max="49" name="n2"><br>
+        Tercer Número  -> <input type="number" min="1" max="49" name="n3"><br>
+        Cuarto Número  -> <input type="number" min="1" max="49" name="n4"><br>
+        Quinto Número  -> <input type="number" min="1" max="49" name="n5"><br>
+        Sexto Número   -> <input type="number" min="1" max="49" name="n6"><br><br>
+        Número de Serie -> <input type="number" min="1" max="999" name="s1"><br><br>
+        <input type="submit" value="Jugar a la Loteria Primitiva">
+    </form>
+</body>
+
+</html>

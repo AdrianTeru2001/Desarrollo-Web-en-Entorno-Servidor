@@ -12,6 +12,7 @@
         $color = $_GET["color"];
         $tipo = $_GET["tipo"];
         $alineado = $_GET["alineado"];
+        $imagen = $_GET["imagen"];
         echo "<img src='$imagen' alt='imagen' width='600px' height='400px' >";
         echo "<style> *{ background-color: $color; } p{ font-family: $tipo; text-align: $alineado; }</style>";
     ?>

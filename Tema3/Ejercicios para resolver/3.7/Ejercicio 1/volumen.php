@@ -8,11 +8,12 @@
 </head>
 
 <body>
-    <h2>Volumen del cilindro:</h2>
-    <?php
+    <h2>Volumen del cilindro <?php
         $radio = $_GET["d"]/2;
         echo (pi()*pow($radio,2))*$_GET["a"];
-    ?>
+        ?> cm2
+    </h2>
+    <img src="cilindro.png" alt="Cilindro">
 </body>
 
 </html>

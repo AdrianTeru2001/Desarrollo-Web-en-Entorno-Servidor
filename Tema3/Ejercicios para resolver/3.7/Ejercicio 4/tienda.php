@@ -47,13 +47,13 @@
         </tr>
         <tr>
             <td>Precio Medio</td>
-            <td colspan="3"><?php echo $media, "€" ?></td>
+            <td colspan="3"><?php echo round($media,2), "€" ?></td>
         </tr>
         <tr>
             <td>Diferencias</td>
-            <td><?php echo $dif1, "€" ?></td>
-            <td><?php echo $dif2, "€"?></td>
-            <td><?php echo $dif3, "€"?></td>
+            <td><?php echo round($dif1,2), "€" ?></td>
+            <td><?php echo round($dif2,2), "€"?></td>
+            <td><?php echo round($dif3,2), "€"?></td>
         </tr>
     </table>
 </body>

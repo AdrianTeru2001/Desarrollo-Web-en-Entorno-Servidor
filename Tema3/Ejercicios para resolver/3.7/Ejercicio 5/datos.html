@@ -15,7 +15,13 @@ Una vez introducidos se mostrará el tiempo total en horas y minutos que se tard
 </head>
 
 <body>
-    
+    <h1>Datos del depósito</h1>
+    <form action="tiempo.php" method="get">
+        Diámetro del depósito <input type="number" name="diametro"><br><br>
+        Altura del depósito <input type="number" name="altura"><br><br>
+        Caudal de aceite (LitosXMinutos) <input type="number" name="caudal"><br><br>
+        <input type="submit" value="Calcular Tiempo de Llenado">
+    </form>
 </body>
 
 </html>

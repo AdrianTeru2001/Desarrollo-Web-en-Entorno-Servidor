@@ -10,22 +10,25 @@
 <body>
 
     <?php 
-        /* $num = $_REQUEST["num"]; */
-        /* $nombre = $_GET["nombre"]; */
-        header("Refresh:2; url=principal.html");
+        //Comprobamos si la variable $nombre tiene algo de contenido
         if (isset($_GET["nombre"])) {
             $nombre = $_GET["nombre"];
-            if ($nombre=="gollum") {
-                echo "Enhorabuena Has ganadooooooooooooooooooo <br> ooooooooooooooooooooooo";
-            } else {
-                echo "Has perdidoooooooooooooooooooooooo <br> ooooooooooooooooooo";
+            if ($nombre=="gollum") { ?> <!-- Si tiene contenido y ha acertado, se dice que ha acertado y se le muestra la foto entera -->
+                <h1><?php echo "Enhorabuena Has ganado, era ",$nombre,"."; ?></h1><br>
+                <img src="../imagenes/gollum.jpg">
+                <?php 
+            } else { ?> <!-- Si tiene contenido pero no ha acertado, se le dice que ha fallado y se le da la opcion de jugar otra vez -->
+                <h1><?php echo "Has fallado, no era ",$nombre,"."; ?></h1><br>
+                <h3><a href="principal.html">Volver para intentarlo de nuevo</a></h3>
+                <?php
             }
-        } else { 
-            $num = $_REQUEST["num"]; ?>
+        } else { //Si $nombre no tiene contenido significa que llegamos a esta pagina por pulsar un cuadro de la imagen
+            $num = $_REQUEST["num"]; //Mostramos el mismo contenido de la pagina principal pero enseñando que imagen se encuentra en el cuadro pulsado.
+            header("Refresh:2; url=principal.html"); ?>
             <h1>Adivina la imagen escondida detras del mosaico</h1>
             <p>Pulsa en cada cuadrado para ver la imagen que esconde, y cuando tengas 
             claro de que imagen se trata con el menor número posible de consultas, escribe su nombre y comprueba si has acertado.</p>
-            <table>
+            <table> <!-- Utilizamos una condicion separada por '?' y ':' -->
                 <tr>
                     <td><img src="<?php echo ($num==1) ? '../imagenes/1.jpg' : '../imagenes/oculto.jpg'; ?>"></td>
                     <td><img src="<?php echo ($num==2) ? '../imagenes/2.jpg' : '../imagenes/oculto.jpg'; ?>"></td>
@@ -43,38 +46,12 @@
                 </tr>
             </table>
             <br>
-            <form action="ejercicio1.php" method="get">
+            <form action="comprobar.php" method="get">
                 <input type="submit" value="Comprobar">
                 <input type="text" name="nombre">
             </form>
         <?php } 
     ?>
-
-    <!-- <h1>Adivina la imagen escondida detras del mosaico</h1>
-    <p>Pulsa en cada cuadrado para ver la imagen que esconde, y cuando tengas 
-    claro de que imagen se trata con el menor número posible de consultas, escribe su nombre y comprueba si has acertado.</p>
-    <table>
-        <tr>
-            <td><img src="<?php echo ($num==1) ? '../imagenes/1.jpg' : '../imagenes/oculto.jpg'; ?>"></td>
-            <td><img src="<?php echo ($num==2) ? '../imagenes/2.jpg' : '../imagenes/oculto.jpg'; ?>"></td>
-            <td><img src="<?php echo ($num==3) ? '../imagenes/3.jpg' : '../imagenes/oculto.jpg'; ?>"></td>
-        </tr>
-        <tr>
-            <td><img src="<?php echo ($num==4) ? '../imagenes/4.jpg' : '../imagenes/oculto.jpg'; ?>"></td>
-            <td><img src="<?php echo ($num==5) ? '../imagenes/5.jpg' : '../imagenes/oculto.jpg'; ?>"></td>
-            <td><img src="<?php echo ($num==6) ? '../imagenes/6.jpg' : '../imagenes/oculto.jpg'; ?>"></td>
-        </tr>
-        <tr>
-            <td><img src="<?php echo ($num==7) ? '../imagenes/7.jpg' : '../imagenes/oculto.jpg'; ?>"></td>
-            <td><img src="<?php echo ($num==8) ? '../imagenes/8.jpg' : '../imagenes/oculto.jpg'; ?>"></td>
-            <td><img src="<?php echo ($num==9) ? '../imagenes/9.jpg' : '../imagenes/oculto.jpg'; ?>"></td>
-        </tr>
-    </table>
-    <br>
-    <form action="ejercicio1.php" method="get">
-        <input type="submit" value="Comprobar">
-        <input type="text" name="nombre">
-    </form> -->
 
 </body>
 

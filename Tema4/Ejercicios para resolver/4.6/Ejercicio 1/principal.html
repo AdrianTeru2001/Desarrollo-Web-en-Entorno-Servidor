@@ -22,7 +22,7 @@ Cuando el usuario escriba algo y pulse el botón comprobar ocurrirá lo siguient
     <p>Pulsa en cada cuadrado para ver la imagen que esconde, y cuando tengas 
     claro de que imagen se trata con el menor número posible de consultas, escribe su nombre y comprueba si has acertado.</p>
     <table>
-        <tr>
+        <tr> <!-- Creamos una tabla mostrando los cuadros ocultos y al clickar en uno de ellos nos lleva a la pagina de comprobar mandandole la variable $num -->
             <td><a href="comprobar.php?num=1"><img src="../imagenes/oculto.jpg"></a></td>
             <td><a href="comprobar.php?num=2"><img src="../imagenes/oculto.jpg"></a></td>
             <td><a href="comprobar.php?num=3"><img src="../imagenes/oculto.jpg"></a></td>
@@ -38,7 +38,7 @@ Cuando el usuario escriba algo y pulse el botón comprobar ocurrirá lo siguient
             <td><a href="comprobar.php?num=9"><img src="../imagenes/oculto.jpg"></a></td>
         </tr>
     </table>
-    <br>
+    <br> <!-- Utilizamos un form para poder meter la solucion y comprobarla en la otra pagina -->
     <form action="comprobar.php" method="get">
         <input type="submit" value="Comprobar">
         <input type="text" name="nombre">

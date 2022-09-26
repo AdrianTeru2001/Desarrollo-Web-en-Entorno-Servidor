@@ -15,9 +15,9 @@ intenta dar un aspecto agradable a la página de resultado. -->
 
 <body>
     <h2>Datos para calcular el volumen de un cilindro:</h2>
-    <form action="volumen.php" method="get">
-        Altura del cilindro <input type="number" name="a"><br>
-        Diametro del cilindro <input type="number" name="d"><br><br>
+    <form action="volumen.php" method="post">
+        Altura del cilindro <input type="number" min="1" name="a"><br>
+        Diametro del cilindro <input type="number" min="1" name="d"><br><br>
         <input type="submit" value="Calcular">
     </form>
 </body>

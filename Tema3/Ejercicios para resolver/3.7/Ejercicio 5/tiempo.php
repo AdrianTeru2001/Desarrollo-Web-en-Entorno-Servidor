@@ -20,7 +20,7 @@
         $minutos = 0;
 
         /* Calculos y Resultado */
-        $volumen = ((pi()*pow($radio,2))*$altura)*1000;
+        $volumen = ((pi()*pow($radio,2))*$altura)*1000; /* Lo multiplico por 1000 para tener el volumen en Litros */
         $tiempo = $volumen/$caudal;
         $horas = $tiempo/60;
         $tiempo = $horas-intval($horas);

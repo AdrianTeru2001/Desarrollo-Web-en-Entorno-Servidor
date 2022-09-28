@@ -28,12 +28,12 @@ por lo que no se controla si el usuario selecciona más de 6 números. -->
         $cont = 0;
         for ($i=0; $i < 49; $i++) {
             if ($cont==5) {
-                ?> <tr> <?php
+                echo "<tr>";
                 $cont = 0;
-            } ?>
-            <td><input type="checkbox"><?php echo $i+1 ?></td> <?php 
+            }
+            echo "<td><input type='checkbox'> ",$i+1," </td>";
             if ($cont==4) {
-                ?> </tr> <?php
+                echo "</tr>";
             }
             $cont++;
         }

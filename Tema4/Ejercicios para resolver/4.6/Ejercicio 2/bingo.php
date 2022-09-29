@@ -18,30 +18,48 @@ por lo que no se controla si el usuario selecciona más de 6 números. -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            width: 300px;
+        }
+        tr, td {
+            height: 30px;
+            border: 1px solid blue;
+        }
+    </style>
     <title>Bingo</title>
 </head>
 
 <body>
     <h1>Bingo</h1>
-    <table>
+    <h3>Elige seis números y el número de serie (1-999)</h3>
     <?php 
-        $cont = 0;
-        for ($i=0; $i < 49; $i++) {
-            if ($cont==5) {
-                echo "<tr>";
-                $cont = 0;
+        if (isset($_GET["error"])) {
+            $fallo = $_GET["error"];
+            if ($fallo=1) {
+                echo "<h3>Tienes que elegir 6 números, no puedes elegir ni mas ni menos</h3>";
             }
-            echo "<td><input type='checkbox'> ",$i+1," </td>";
-            if ($cont==4) {
-                echo "</tr>";
-            }
-            $cont++;
         }
     ?>
-    </table>
-    <br>
     <form action="compruebaBingo.php" method="get">
-        Número de serie -> <input type="text" name="serie"><br><br>
+        <table>
+        <?php 
+            $cont = 0;
+            for ($i=1; $i <= 49; $i++) {
+                if ($cont==5) {
+                    echo "<tr>";
+                    $cont = 0;
+                }
+                echo "<td><input type='checkbox' name='$i' value='$i'><strong>",$i,"</strong></td>";
+                if ($cont==4) {
+                    echo "</tr>";
+                }
+                $cont++;
+            }
+        ?>
+        </table>
+        <br>
+        <strong>Número de serie -></strong> <input type="text" name="serie"><br><br>
         <input type="submit" value="Jugar al Bingo">
     </form>
 </body>

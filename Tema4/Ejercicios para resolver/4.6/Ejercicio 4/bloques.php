@@ -25,7 +25,6 @@ Cuando se pulse llamar en un piso de un bloque, mostrará en otra página el men
                 echo "</tr>";
             }    
         }
-        
     ?>
     </table>
 

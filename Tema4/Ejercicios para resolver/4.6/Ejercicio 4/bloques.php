@@ -9,6 +9,19 @@ Cuando se pulse llamar en un piso de un bloque, mostrará en otra página el men
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            width: 250px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        tr, td{
+            text-align: center;
+            width: 100px;
+            height: 25px;
+            border: 1px solid red;
+        }
+    </style>
     <title>Bloques</title>
 </head>
 
@@ -20,14 +33,19 @@ Cuando se pulse llamar en un piso de un bloque, mostrará en otra página el men
             for ($j=0; $j < 7 ; $j++) { 
                 echo "<tr>";
                 for ($h=0; $h < 3; $h++) { 
-                    echo "<td> $i </td>";
+                    if ($j==0 && $h==0) {
+                        echo "<td rowspan=7> Bloque ",$i+1," </td>";
+                    } else if($h==1) {
+                        echo "<td> Piso ",$j+1," </td>";
+                    } else if($h==2) {
+                        echo "<td> <a href='llamada.php?bloque=",$i+1,"&piso=",$j+1,"'><input type='button' name='piso' value='Llamar'></a> </td>";
+                    }
                 }
                 echo "</tr>";
             }    
         }
     ?>
     </table>
-
 </body>
 
 </html>

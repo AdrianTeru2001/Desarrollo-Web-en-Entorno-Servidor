@@ -13,7 +13,7 @@ navega de una página a otra, si no se pierde su valor. -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego de Adivinar la Imagen 2</title>
+    <title>Juego de Adivinar la Imagen 2 - Ejercicio 3</title>
 </head>
 
 <body>
@@ -30,26 +30,26 @@ navega de una página a otra, si no se pierde su valor. -->
         }
     ?>
         <tr> <!-- Creamos una tabla mostrando los cuadros ocultos y al clickar en uno de ellos nos lleva a la pagina de comprobar mandandole la variable $num -->
-            <td><a href="comprobar2.php?num=1&contador=<?php echo $contador ?>"><img src="../imagenes/oculto.jpg"></a></td>
-            <td><a href="comprobar2.php?num=2&contador=<?php echo $contador ?>"><img src="../imagenes/oculto.jpg"></a></td>
-            <td><a href="comprobar2.php?num=3&contador=<?php echo $contador ?>"><img src="../imagenes/oculto.jpg"></a></td>
+            <td><a href="Ej3_Comprobar.php?num=1&contador=<?php echo $contador ?>"><img src="../imagenes/oculto.jpg"></a></td>
+            <td><a href="Ej3_Comprobar.php?num=2&contador=<?php echo $contador ?>"><img src="../imagenes/oculto.jpg"></a></td>
+            <td><a href="Ej3_Comprobar.php?num=3&contador=<?php echo $contador ?>"><img src="../imagenes/oculto.jpg"></a></td>
         </tr>
         <tr>
-            <td><a href="comprobar2.php?num=4&contador=<?php echo $contador ?>"><img src="../imagenes/oculto.jpg"></a></td>
-            <td><a href="comprobar2.php?num=5&contador=<?php echo $contador ?>"><img src="../imagenes/oculto.jpg"></a></td>
-            <td><a href="comprobar2.php?num=6&contador=<?php echo $contador ?>"><img src="../imagenes/oculto.jpg"></a></td>
+            <td><a href="Ej3_Comprobar.php?num=4&contador=<?php echo $contador ?>"><img src="../imagenes/oculto.jpg"></a></td>
+            <td><a href="Ej3_Comprobar.php?num=5&contador=<?php echo $contador ?>"><img src="../imagenes/oculto.jpg"></a></td>
+            <td><a href="Ej3_Comprobar.php?num=6&contador=<?php echo $contador ?>"><img src="../imagenes/oculto.jpg"></a></td>
         </tr>
         <tr>
-            <td><a href="comprobar2.php?num=7&contador=<?php echo $contador ?>"><img src="../imagenes/oculto.jpg"></a></td>
-            <td><a href="comprobar2.php?num=8&contador=<?php echo $contador ?>"><img src="../imagenes/oculto.jpg"></a></td>
-            <td><a href="comprobar2.php?num=9&contador=<?php echo $contador ?>"><img src="../imagenes/oculto.jpg"></a></td>
+            <td><a href="Ej3_Comprobar.php?num=7&contador=<?php echo $contador ?>"><img src="../imagenes/oculto.jpg"></a></td>
+            <td><a href="Ej3_Comprobar.php?num=8&contador=<?php echo $contador ?>"><img src="../imagenes/oculto.jpg"></a></td>
+            <td><a href="Ej3_Comprobar.php?num=9&contador=<?php echo $contador ?>"><img src="../imagenes/oculto.jpg"></a></td>
         </tr>
     </table>
     <?php //Aqui mostramos cuantos intentos lleva
         echo "<p>Llevas ",$contador," intentos</p>";
     ?>
     <br> <!-- Utilizamos un form para poder meter la solucion y comprobarla en la otra pagina -->
-    <form action="comprobar2.php" method="get">
+    <form action="Ej3_Comprobar.php" method="get">
         <input type="hidden" name="contador" value="<?php echo $contador ?>">
         <input type="submit" value="Comprobar">
         <input type="text" name="nombre">

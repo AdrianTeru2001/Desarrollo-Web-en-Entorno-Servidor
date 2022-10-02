@@ -22,23 +22,23 @@ Cuando se pulse llamar en un piso de un bloque, mostrará en otra página el men
             border: 1px solid red;
         }
     </style>
-    <title>Bloques</title>
+    <title>Bloques - Ejercicio 5</title>
 </head>
 
 <body>
     <table>
     <?php 
         $cont = 0;
-        for ($i=0; $i < 10; $i++) { 
+        for ($i=0; $i < 10; $i++) {  //Hacemos la tabla de los bloques y pisos mediante 3 bucles anidados
             for ($j=0; $j < 7 ; $j++) { 
                 echo "<tr>";
                 for ($h=0; $h < 3; $h++) { 
-                    if ($j==0 && $h==0) {
+                    if ($j==0 && $h==0) { //Con esto hacemos el bloque
                         echo "<td rowspan=7> Bloque ",$i+1," </td>";
-                    } else if($h==1) {
+                    } else if($h==1) { //Con esto hacemos el piso
                         echo "<td> Piso ",$j+1," </td>";
-                    } else if($h==2) {
-                        echo "<td> <a href='llamada.php?bloque=",$i+1,"&piso=",$j+1,"'><input type='button' name='piso' value='Llamar'></a> </td>";
+                    } else if($h==2) { //Con esto hacemos el boton para llamar al piso
+                        echo "<td> <a href='Ej4_Llamada.php?bloque=",$i+1,"&piso=",$j+1,"'><input type='button' name='piso' value='Llamar'></a> </td>";
                     }
                 }
                 echo "</tr>";

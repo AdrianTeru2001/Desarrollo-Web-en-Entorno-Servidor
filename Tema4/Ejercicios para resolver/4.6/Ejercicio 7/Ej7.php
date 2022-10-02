@@ -1,17 +1,11 @@
-<!-- Ejercicio 2
-Mejora el ejercicio de la lotería primitiva del tema anterior. Ahora los números se seleccionan
-de un boleto al estilo “bingo” con filas y columnas, para representar los números seleccionados se usarán checkbox,
-y para el número de serie una caja de texto. Cuando se pulse el botón jugar, 
-se mostrará la combinación ganadora generada aleatoriamente y los aciertos que ha tenido. 
-No se usarán estructuras repetitivas ni arrays, se mostrará la combinación ganadora en una tabla con una sola fila y un número en cada columna.
-Se mostrará el número de aciertos que ha tenido el usuario y cuánto dinero ha ganado:
--menos de 4 aciertos: nada
--4 aciertos: dinero vuelto
--5 aciertos: 30 euros
--6 aciertos: 100 euros
--número de serie: Si se acierta se sumarán 500 euros independientemente del número de aciertos.
-Nota: no hace falta comprobar todos los números, solo los de la combinación ganadora,
-por lo que no se controla si el usuario selecciona más de 6 números. -->
+<!-- EJERCICIO 7
+Realiza el ejercicio 2 correspondiente al juego de la primitiva, pero usando estructuras repetitivas para simplificar el código. 
+Pero en esta ocasión lo vamos a realizar de una forma más vistosa gracias a que podemos utilizar las estructuras repetitivas. 
+Para mostrar el resultado de la apuesta vamos a mostrar una tabla con todos los números de la primitiva, y los números elegidos
+por el usuario que hayan sido aciertos serán de color verde, los elegidos por el usuario que no han sido aciertos 
+serán de color negro, los números de la combinación aleatoria que no han sido elegidos por el usuario serán de color 
+rojo y por último el resto de números serán de color gris. También contaremos los números seleccionados por el 
+usuario y si son más de 6, en vez de mostrar el premio obtenido se mostrará un mensaje indicando que ha hecho trampas. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,21 +21,23 @@ por lo que no se controla si el usuario selecciona más de 6 números. -->
             border: 1px solid blue;
         }
     </style>
-    <title>Bingo</title>
+    <title>Bingo - Ejercicio 7</title>
 </head>
 
 <body>
     <h1>Bingo</h1>
     <h3>Elige seis números y el número de serie (1-999)</h3>
+    <!-- Aqui captamos el error de meter menos de 6 numeros -->
     <?php 
         if (isset($_GET["error"])) {
             $fallo = $_GET["error"];
             if ($fallo=1) {
-                echo "<h3>Tienes que elegir 6 números, no puedes elegir ni mas ni menos</h3>";
+                echo "<h3>Tienes que elegir 6 números, no puedes elegir menos</h3>";
             }
         }
     ?>
-    <form action="compruebaBingo.php" method="get">
+    <!-- Formulario para pasar los datos a la otra pagina -->
+    <form action="Ej7_Comprobar.php" method="get">
         <table>
         <?php 
             $cont = 0;

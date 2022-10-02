@@ -22,23 +22,23 @@
 <body>
 
     <?php 
-        $cont = 0;
-        for ($i=1; $i <= 49; $i++) { 
+        $cont = 0; 
+        for ($i=1; $i <= 49; $i++) { //Comprobamos si se ha añadido mas o menos de 6 números
             if (isset($_GET[$i])) {
                 $cont++;
             }
         }
-        if ($cont!=6) {
-            header("Refresh:0; url=bingo.php?error=1");
+        if ($cont!=6) { //Si metemos mas o menos de 6 números mandamos una variable para comprobar el error a la otra pagina
+            header("Refresh:0; url=Ej2.php?error=1");
         }
     ?>
 
     <h1>Resultado de tu apuesta...</h1>  
-    <table>
+    <table> <!-- Hacemos la tabla con los números ganadores -->
         <tr>
             <td colspan="6">Combinación Ganadora</td>
         </tr>
-        <tr>
+        <tr> <!-- Generamos los números ganadores aleatoriamente -->
             <td><?php echo $n1 = rand(1,49) ?></td>
             <td><?php echo $n2 = rand(1,49) ?></td>
             <td><?php echo $n3 = rand(1,49) ?></td>
@@ -56,31 +56,18 @@
         $aciertos = 0;
         $dinero = 0;
         echo "<h3>Valores acertados: ";
-        for ($i=1; $i <= 49; $i++) { 
+        for ($i=1; $i <= 49; $i++) { //Comprobamos que números hemos acertado
             if (isset($_GET[$i])) {
                 $numero = $_GET[$i];
-                if ($numero==$n1) {
-                    echo $numero,", ";
-                    $aciertos++;
-                } else if ($numero==$n2) {
-                    echo $numero,", ";
-                    $aciertos++;
-                } else if ($numero==$n3) {
-                    echo $numero,", ";
-                    $aciertos++;
-                } else if ($numero==$n4) {
-                    echo $numero,", ";
-                    $aciertos++;
-                } else if ($numero==$n5) {
-                    echo $numero,", ";
-                    $aciertos++;
-                } else if ($numero==$n6) {
+                if ($numero==$n1 || $numero==$n2 || $numero==$n3 || $numero==$n4 || $numero==$n5 || $numero==$n6) {
                     echo $numero,", ";
                     $aciertos++;
                 }
             }
         }
+        //Mostramos cuantos aciertos hemos hecho
         echo "</h3><h3>Has tenido un total de ",$aciertos," aciertos</h3>";
+        //Comprobamos y mostramos si hemos acertado o no el número de serie
         $nSerie = $_GET["serie"];
         if ($nSerie==$serieR) {
             echo "<h3>Has acertado el número de serie, que pelotazo!!!!</h3>";
@@ -88,6 +75,7 @@
         } else {
             echo "<h3>No has podido acertar el número de serie</h3>";
         }
+        //Según los aciertos y si hemos acertado el número de serie o no tendremos y mostramos que cantidad hemos ganado
         if ($aciertos==4) {
             $dinero += 5;
         } else if ($aciertos==5) {

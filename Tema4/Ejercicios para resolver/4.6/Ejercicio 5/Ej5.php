@@ -14,7 +14,7 @@ ser recargará la página con todos los ojos cerrados salvo el que se ha pulsado
             margin-right: auto;
         }
     </style>
-    <title>Ojos</title>
+    <title>Ojos - Ejercicio 5</title>
 </head>
 
 <body>
@@ -22,6 +22,8 @@ ser recargará la página con todos los ojos cerrados salvo el que se ha pulsado
     <table>
         <?php
             $cont = 1;
+            //Comprobamos si hemos clickado en el ojo, si no lo hemos hecho, la variable ojo vale 0, 
+            //si lo hemos hecho, la variable vale segun el ojo que hayamos pulsado
             if (!isset($_REQUEST['ojo'])) {
                 $ojo = 0;
             } else {
@@ -29,8 +31,8 @@ ser recargará la página con todos los ojos cerrados salvo el que se ha pulsado
             }
             for ($i=0; $i < 10; $i++) { 
                 echo "<tr>";
-                for ($j=0; $j < 10; $j++) { 
-                    echo "<td><a href='ojo.php?ojo=",$cont,"'><img src='",($ojo==$cont) ? '../imagenes/ojoabierto.png' : '../imagenes/ojocerrado.png',"' width='80px' height='65px' alt='ojoCerrado'></a></td>";
+                for ($j=0; $j < 10; $j++) { //Metemos la imagen dentro de un enlace para, al pulsarlo, recargar la pagina enviando el dato del ojo que hemos pulsado
+                    echo "<td><a href='Ej5.php?ojo=",$cont,"'><img src='",($ojo==$cont) ? '../imagenes/ojoabierto.png' : '../imagenes/ojocerrado.png',"' width='80px' height='65px' alt='ojoCerrado'></a></td>";
                     $cont++;
                 }
                 echo "</tr>";

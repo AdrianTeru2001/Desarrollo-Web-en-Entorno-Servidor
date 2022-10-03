@@ -44,23 +44,6 @@
                     }
                 ?>
             </table>
-            <!-- <table> 
-                <tr>
-                    <td><img src="<?php echo ($num==1) ? '../imagenes/1.jpg' : '../imagenes/oculto.jpg'; ?>"></td>
-                    <td><img src="<?php echo ($num==2) ? '../imagenes/2.jpg' : '../imagenes/oculto.jpg'; ?>"></td>
-                    <td><img src="<?php echo ($num==3) ? '../imagenes/3.jpg' : '../imagenes/oculto.jpg'; ?>"></td>
-                </tr>
-                <tr>
-                    <td><img src="<?php echo ($num==4) ? '../imagenes/4.jpg' : '../imagenes/oculto.jpg'; ?>"></td>
-                    <td><img src="<?php echo ($num==5) ? '../imagenes/5.jpg' : '../imagenes/oculto.jpg'; ?>"></td>
-                    <td><img src="<?php echo ($num==6) ? '../imagenes/6.jpg' : '../imagenes/oculto.jpg'; ?>"></td>
-                </tr>
-                <tr>
-                    <td><img src="<?php echo ($num==7) ? '../imagenes/7.jpg' : '../imagenes/oculto.jpg'; ?>"></td>
-                    <td><img src="<?php echo ($num==8) ? '../imagenes/8.jpg' : '../imagenes/oculto.jpg'; ?>"></td>
-                    <td><img src="<?php echo ($num==9) ? '../imagenes/9.jpg' : '../imagenes/oculto.jpg'; ?>"></td>
-                </tr>
-            </table> -->
         <?php } 
     ?>
 

@@ -14,7 +14,9 @@ resaltados de un color diferente. -->
 </head>
 
 <body>
-    
+
+    <h2>Valores generados</h2>
+
     <?php 
         $cont = 0;
         for ($i=0; $i < 100; $i++) { 
@@ -34,6 +36,7 @@ resaltados de un color diferente. -->
         echo "<br>";
         $arrayNum = serialize($num);
     ?>
+    
     <form action="Ej4_Numeros.php" method="get">
         Valor cambiado -> <input type="number" min="0" max="20" name="valor1"><br>
         Valor para cambiar -> <input type="number" min="0" max="20" name="valor2"><br>

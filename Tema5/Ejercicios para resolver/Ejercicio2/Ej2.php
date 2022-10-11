@@ -19,18 +19,23 @@ siguiente forma: $cadenaTexto=base64_encode(serialize($array)); $array=unseriali
 <body>
     
     <?php 
-        if (isset($_REQUEST[$array])) {
-            $comida[] = $_REQUEST[$array];
+        if (isset($_REQUEST["array"])) { //Si la variable contiene el String de array
+            $junto = $_REQUEST["array"]; //Guardamos el String de array que viene de la otra pagina en una variable
+        } else {
+            $junto = ""; //Si no pues no le damos valor a la variable
         }
     ?>
 
+    <!-- Mediante formularios y checkboxs elegimos los ingredientes y los pasamos a la otra página -->
+    <!-- Con el input hidden pasamos a las otras páginas el String con todos los pedidos -->
     <h2>Pizza: </h2>
     <form action="Ej2_Controlar.php" method="get">
         <input type="hidden" name="pizza" value="Pizza">
-        Jamón <input type="checkbox" name="jamon" value="Jamón">
-        Atún <input type="checkbox" name="atun" value="Atún">
+        Jamón <input type="checkbox" name="jamon" value="Jamon">
+        Atún <input type="checkbox" name="atun" value="Atun">
         Bacon <input type="checkbox" name="bacon" value="Bacon">
         Pepperoni <input type="checkbox" name="pepperoni" value="Pepperoni"> &nbsp&nbsp
+        <input type="hidden" name="oculto" value="<?php echo $junto ?>"> 
         <input type="submit" value="Pedir">
     </form>
     <h2>Hamburguesa: </h2>
@@ -39,6 +44,7 @@ siguiente forma: $cadenaTexto=base64_encode(serialize($array)); $array=unseriali
         Lechuga <input type="checkbox" name="lechuga" value="Lechuga">
         Tomate <input type="checkbox" name="tomate" value="Tomate">
         Queso <input type="checkbox" name="queso" value="Queso"> &nbsp&nbsp
+        <input type="hidden" name="oculto" value="<?php echo $junto ?>">
         <input type="submit" value="Pedir">
     </form>
     <h2>Perrito Caliente: </h2>
@@ -47,10 +53,14 @@ siguiente forma: $cadenaTexto=base64_encode(serialize($array)); $array=unseriali
         Lechuga <input type="checkbox" name="lechuga" value="Lechuga">
         Cebolla <input type="checkbox" name="cebolla" value="Cebolla">
         Patata <input type="checkbox" name="patata" value="Patata"> &nbsp&nbsp
+        <input type="hidden" name="oculto" value="<?php echo $junto ?>">
         <input type="submit" value="Pedir">
     </form>
     <br>
+
+    <!-- Con este form pasamos a la pagina final todos los pedidos que hayamos hecho -->
     <form action="Ej2_ComidaRapida.php" metho="get">
+        <input type="hidden" name="oculto" value="<?php echo $junto ?>">
         <input type="submit" value="Enviar Pedido">
     </form>
 

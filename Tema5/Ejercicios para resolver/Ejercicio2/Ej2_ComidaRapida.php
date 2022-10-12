@@ -25,7 +25,6 @@
     <?php 
         if (!$_REQUEST["oculto"]=="") { //Si la variable oculto tiene el String de array
             $comida = $_GET["oculto"]; //Pasamos el String a una variable
-            /* $comida2 = []; */
             $comida2 = unserialize(base64_decode($comida)); //Transformamos el String en un array pasandolo a una variable array
             $cont = 0;
             echo "<table>"; //Metemos todos los pedidos en  una tabla

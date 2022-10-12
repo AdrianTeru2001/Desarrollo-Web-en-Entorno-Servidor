@@ -15,12 +15,67 @@ que unirá con otra persona que sea compatible, el perfil incompatible sería ho
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            text-align: center;
+        }
+        fieldset{
+            width: 500px;
+            margin: auto;
+        }
+    </style>
     <title>Ejercicio 4 - Test de Parejas</title>
 </head>
 
 <body>
     
+<?php 
+        if (isset($_REQUEST["array"])) {
+            $junto = $_REQUEST["array"];
+        } else {
+            $junto = "";
+        }
+    ?>
+
+    <h1>Cupido ha llegado a la web</h1>
+    <form action="Ej4_Controlar.php" method="get">
+        <fieldset>
+            <legend>Añadir personas a la Base de datos</legend>
+            <br>
+            <strong>NOMBRE</strong>
+            <input type="text" name="nombre">
+            <hr>
+            <strong>SEXO</strong>
+            <input type="radio" id="hombre" name="sexo" value="Hombre" required>
+            <label for="hombre">Hombre</label>
+            <input type="radio" id="mujer" name="sexo" value="Mujer">
+            <label for="mujer">Mujer</label>
+            <hr>
+            <strong>ORIENTACIÓN</strong>
+            <input type="radio" id="hetero" name="orientacion" value="Heterosexual" required>
+            <label for="hetero">Heterosexual</label>
+            <input type="radio" id="homo" name="orientacion" value="Homosexual">
+            <label for="homo">Homosexual</label>
+            <input type="radio" id="bis" name="orientacion" value="Bisexual">
+            <label for="bis">Bisexual</label>
+            <hr>
+            <input type="hidden" name="oculto" value="<?php echo $junto ?>"> 
+            <input type="submit" value="AÑADIR PERSONA">
+            <br><br>
+        </fieldset>
+    </form>
+    <br><br>
     
+    <form action="Ej4_Parejas.php" method="get">
+        <fieldset>
+            <br>
+            <legend>Pasar a generar parejas amorosas</legend>
+            <input type="hidden" name="oculto" value="<?php echo $junto ?>"> 
+            <input type="submit" value="CUPIDO ENTRA EN ACCIÓN"> 
+            <br><br>
+        </fieldset>
+        
+    </form>
 
 </body>
 

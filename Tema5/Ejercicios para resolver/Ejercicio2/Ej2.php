@@ -38,6 +38,7 @@ siguiente forma: $cadenaTexto=base64_encode(serialize($array)); $array=unseriali
         <input type="hidden" name="oculto" value="<?php echo $junto ?>"> 
         <input type="submit" value="Pedir">
     </form>
+    <hr>
     <h2>Hamburguesa: </h2>
     <form action="Ej2_Controlar.php" method="get">
         <input type="hidden" name="hamburguesa" value="Hamburguesa">
@@ -47,6 +48,7 @@ siguiente forma: $cadenaTexto=base64_encode(serialize($array)); $array=unseriali
         <input type="hidden" name="oculto" value="<?php echo $junto ?>">
         <input type="submit" value="Pedir">
     </form>
+    <hr>
     <h2>Perrito Caliente: </h2>
     <form action="Ej2_Controlar.php" method="get">
         <input type="hidden" name="perrito" value="Perrito">
@@ -56,6 +58,7 @@ siguiente forma: $cadenaTexto=base64_encode(serialize($array)); $array=unseriali
         <input type="hidden" name="oculto" value="<?php echo $junto ?>">
         <input type="submit" value="Pedir">
     </form>
+    <hr>
     <br>
 
     <!-- Con este form pasamos a la pagina final todos los pedidos que hayamos hecho -->

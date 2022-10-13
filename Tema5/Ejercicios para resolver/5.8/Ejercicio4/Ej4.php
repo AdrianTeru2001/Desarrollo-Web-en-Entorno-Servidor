@@ -15,7 +15,7 @@ que unirá con otra persona que sea compatible, el perfil incompatible sería ho
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
+    <style type="text/css">
         body{
             text-align: center;
         }
@@ -29,7 +29,7 @@ que unirá con otra persona que sea compatible, el perfil incompatible sería ho
 
 <body>
     
-<?php 
+    <?php //Vamos cojiendo el array de la pagina donde controlamos todo el array
         if (isset($_REQUEST["array"])) {
             $junto = $_REQUEST["array"];
         } else {
@@ -38,7 +38,7 @@ que unirá con otra persona que sea compatible, el perfil incompatible sería ho
     ?>
 
     <h1>Cupido ha llegado a la web</h1>
-    <form action="Ej4_Controlar.php" method="get">
+    <form action="Ej4_Controlar.php" method="get"> <!-- Hacemos un formulario donde pedimos el nombre, el sexo y la orientación sexual de una persona -->
         <fieldset>
             <legend>Añadir personas a la Base de datos</legend>
             <br>
@@ -59,22 +59,21 @@ que unirá con otra persona que sea compatible, el perfil incompatible sería ho
             <input type="radio" id="bis" name="orientacion" value="Bisexual">
             <label for="bis">Bisexual</label>
             <hr>
-            <input type="hidden" name="oculto" value="<?php echo $junto ?>"> 
+            <input type="hidden" name="oculto" value="<?php echo $junto ?>"> <!-- Pasamos el String del array de todas las personas a la pagina donde lo controlamos todo -->
             <input type="submit" value="AÑADIR PERSONA">
             <br><br>
         </fieldset>
     </form>
     <br><br>
     
-    <form action="Ej4_Parejas.php" method="get">
+    <form action="Ej4_Parejas.php" method="get"> <!-- Con este formulario podemos ir a la página donde generaremos las parejas -->
         <fieldset>
             <br>
             <legend>Pasar a generar parejas amorosas</legend>
-            <input type="hidden" name="oculto" value="<?php echo $junto ?>"> 
+            <input type="hidden" name="oculto" value="<?php echo $junto ?>"> <!-- Pasamos a la pagina de las parejas el String del array para poder tener todas las parejas -->
             <input type="submit" value="CUPIDO ENTRA EN ACCIÓN"> 
             <br><br>
         </fieldset>
-        
     </form>
 
 </body>

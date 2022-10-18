@@ -17,8 +17,8 @@ Dado un párrafo con dos frases (separadas por un punto), contar cuántas palabr
         $frase1 = explode(" ", trim($fraseDividida[0])); //Pasamos las palabras de la primera frase a un array quitando los espacios del principio y del final
         $frase2 = explode(" ", trim($fraseDividida[1])); //Pasamos las palabras de la segunda frase a un array quitando los espacios del principio y del final
 
-        echo "Frase 1 -> ",trim($fraseDividida[0]),"<br>";
-        echo "Frase 2 -> ",trim($fraseDividida[1]),"<br><br>";
+        echo "Frase 1 -> ",$fraseDividida[0],"<br>";
+        echo "Frase 2 -> ",$fraseDividida[1],"<br><br>";
         
         for ($i=0; $i < count($frase1); $i++) { //Controlamos que en la primera frase no hayan espacios en blanco innecesarios
             if ($frase1[$i]=="") {

@@ -13,10 +13,10 @@ Imprimir carácter por carácter un string dado, cada uno en una línea distinta
     
     <?php 
         $cadena = "Hola me llamo Adrian";
-        $caracteres = str_split($cadena); //Pasamos los caracteres de la cadena a un array de caracteres
+        /* $caracteres = str_split($cadena); */ //Pasamos los caracteres de la cadena a un array de caracteres
 
-        for ($i=0; $i < count($caracteres); $i++) { //Mostramos en un bucle los caracteres
-            echo $caracteres[$i],"<br>";
+        for ($i=0; $i < strlen($cadena) /* count($caracteres) */; $i++) { //Mostramos en un bucle los caracteres
+            echo $cadena[$i],"<br>";
         }
     ?>
 

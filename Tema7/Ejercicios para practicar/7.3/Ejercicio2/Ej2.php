@@ -33,7 +33,6 @@ incluye en el cómputo. Utiliza sesiones. -->
                 }
                 header("location: Ej2.php"); 
             } else { //Si no se introduce ningún número (o llegamos a la pagina despues del header de antes)
-                //Mostramos todos los datos de las sesiones (acumulado, cantidad de números introducidos y la media)
                 echo "<h3>La cantidad de números introducidos es ",$_SESSION["intro"],"</h3>";
                 echo "<h3>La media de los números impares es ",$_SESSION["mediaImpares"],"</h3>";
                 echo "<h3>El mayor de los números pares es ",$_SESSION["pares"],"</h3><br>";

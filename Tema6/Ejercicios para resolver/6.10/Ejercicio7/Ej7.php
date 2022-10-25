@@ -21,9 +21,9 @@ Pedir fecha de nacimiento y una fecha futura, y mostrar la edad que tendrá en e
             $mesF = $_GET["mesF"];
             $anoF = $_GET["anoF"];
             if (checkdate($mesN, $diaN, $anoN) && checkdate($mesF, $diaF, $anoF)) { //Si las fechas son correctas
-                $fechaNacimiento = strtotime("$diaN-$mesN-$anoN 00:00:00"); //Pasamos la fecha de nacimento a entero
-                $fechaFutura = strtotime("$diaF-$mesF-$anoF 00:00:00"); //Pasamos la fecha futura a entero
-                if ($fechaNacimiento < $fechaFutura) { //Comprobamos que la fecha futura es mayor que la de nacimiento
+                $fechaNacimiento = strtotime("$diaN-$mesN-$anoN 00:00:00"); //Pasamos las fechas a entero
+                $fechaFutura = strtotime("$diaF-$mesF-$anoF 00:00:00");
+                if ($fechaNacimiento < $fechaFutura) {
                     $fechaFinal = $fechaFutura-$fechaNacimiento; //Restamos ambas fechas
                     $anoFinal = $fechaFinal/31557600; //Calculamos cuantos años tendrá
                     //Mostramos ambas fechas y los años que tendrá

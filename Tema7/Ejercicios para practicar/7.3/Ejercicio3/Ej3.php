@@ -46,7 +46,11 @@ el contador de los números introducidos y la media. Utiliza sesiones. -->
         } else {
             echo "<h2>Introducción de números finalizada</h2>";
         }
-    ?>
+        if ($_GET["volver"] = "volver") {?> <br><br>
+            <form action="../Ejercicio4/Ej4_Cookie.php" methos="get">
+                <input type="submit" value="Volver a elegir ejercicios">
+            </form>
+    <?php } ?>
 
 </body>
 

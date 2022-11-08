@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Averigua la imagen escondida detrás del mosaico</h1>
+    <p>Pulsa en cada cuadrado para ver la imágen que esconde, y cuando tengas claro de que imagen se trata con el menor número posible de consultas, escribe su nombre y comprueba si has acertado.</p>
+    <table border=1 cellspacing=0 cellpadding=0 bordercolor="red">
+        <tr><td><a href="Ejercicio1.php?num=1"><img src="imagen/oculto.jpg"></a></td>
+            <td><a href="Ejercicio1.php?num=2"><img src="imagen/oculto.jpg"></a></td>
+            <td><a href="Ejercicio1.php?num=3"><img src="imagen/oculto.jpg"></a></td></tr>
+        <tr><td><a href="Ejercicio1.php?num=4"><img src="imagen/oculto.jpg"></a></td>
+            <td><a href="Ejercicio1.php?num=5"><img src="imagen/oculto.jpg"></a></td>
+            <td><a href="Ejercicio1.php?num=6"><img src="imagen/oculto.jpg"></a></td></tr>
+        <tr><td><a href="Ejercicio1.php?num=7"><img src="imagen/oculto.jpg"></a></td>
+            <td><a href="Ejercicio1.php?num=8"><img src="imagen/oculto.jpg"></a></td>
+            <td><a href="Ejercicio1.php?num=9"><img src="imagen/oculto.jpg"></a></td></tr>
+    </table>
+    <br><br>
+    <form action="Ejercicio1.php" method="post">
+        <input type="text" name="palabra">
+        <input type="submit" value="comprobar">
+    </form>
+</body>
+</html>

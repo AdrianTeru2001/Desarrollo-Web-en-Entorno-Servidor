@@ -15,13 +15,17 @@ líneas en un archivo denominado datosEjercicio.txt. Si el archivo no existe, de
     
     <?php 
 
+        //Función para escribir los tres números en el fichero
         function escribirTresNumeros($num1, $num2, $num3){
-            
+            $file = "../Fichero/datosEjercicio.txt";
+            $fp = fopen($file, "a");
+            fwrite($fp, $num1.PHP_EOL.$num2.PHP_EOL.$num3.PHP_EOL);
+            echo "ESCRIBIENDO en el fichero ".$file.".....";
+            fclose($fp);
         }
 
-        $num1 = 28;
-        $num2 = 4;
-        $num3 = 2021;
+        //Llamamos a la función y generamos los tres números aleatoriamente
+        escribirTresNumeros(rand(0,999), rand(0,999), rand(0,999));
 
     ?>
 

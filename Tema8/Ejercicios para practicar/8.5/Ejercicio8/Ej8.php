@@ -14,10 +14,46 @@ contenido del fichero completo en la página. -->
 <body>
     
     <?php 
-    
-        
+
+        //Si mandamos texto a la página, metemos el texto mandado en el fichero
+        if (isset($_GET["texto"])) {
+            $ruta = "textoEjercicio.txt";
+            $fp = fopen($ruta, "a");
+            fwrite($fp, $_GET["texto"].PHP_EOL);
+            echo "ESCRIBIENDO en el fichero ".$ruta.".....";
+            fclose($fp);
+        }
+
+        //Mostrar contenido del fichero cuando pulsemos el boton de mostrar
+        if (isset($_GET["mostrar"])) {
+            $ruta = "textoEjercicio.txt";
+            $fp = fopen($ruta, "r");
+            while (!feof($fp)) {
+                $linea = fgets($fp);
+                echo $linea,"<br>";
+            }
+            fclose($fp);
+        }
 
     ?>
+    <br>
+    <?php 
+        //Mientras no se muestre el fichero vamos mostrando el textarea y los botones de enviar y mostrar
+        if (!isset($_GET["mostrar"])) { ?>
+            <form action="#" method="get">
+                <textarea name="texto" cols="40" rows="10"></textarea><br>
+                <input type="submit" value="Enviar">
+            </form>
+            <br>
+            <form action="#" method="get">
+                <input type="hidden" name="mostrar">
+                <input type="submit" value="Terminar">
+            </form>
+       <?php } else { ?>
+            <form action="#" method="get">
+                <input type="submit" value="Volver a introducir palabras">
+            </form>
+       <?php } ?>
 
 </body>
 

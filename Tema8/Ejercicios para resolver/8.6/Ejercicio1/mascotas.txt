@@ -14,6 +14,5 @@ Ramon-Pescao-54
 Paquito-Navarro-48
 Pepito-Palotes-89
 #14-11-2022#
-Fernando-Perro-49
-Pablo-Perra-62
-Adrian-Mariposa-36
+Fernando-Perro-19
+Pablo-Perra-23

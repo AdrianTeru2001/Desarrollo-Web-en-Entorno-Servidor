@@ -1,0 +1,5 @@
+ID1-Ratón-6-raton.jpg
+ID2-Teclado-11-teclado.jpg
+ID3-Monitor-80-monitor.jpg
+ID4-Joystick-33-joystick.jpg
+ID5-Portatil-499-portatil.jpg

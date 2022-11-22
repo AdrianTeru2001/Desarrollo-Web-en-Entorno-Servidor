@@ -12,6 +12,7 @@ datos de los artículos se guarden en una base de datos. -->
             border: 1px solid black;
             text-align: center;
             float: left;
+            margin-right: 80px;
         }
         td,tr{
             border: 1px solid black;
@@ -25,9 +26,6 @@ datos de los artículos se guarden en una base de datos. -->
             width: 200px;
             height: 150px;
         }
-        /* a:hover{
-            font-size: 18px;
-        } */
     </style>
     <title>Ejercicio 3</title>
 </head>
@@ -46,13 +44,32 @@ datos de los artículos se guarden en una base de datos. -->
             die ("Error: ". $e->getMessage());
         }
 
+        //Codigo que se utiliza al pulsar el botón de comprar un producto para añadir uno a la cantidad del producto en la base de datos
+        if (isset($_GET["comprar"])) {
+            $nombre = $_GET["comprar"];
+            $consulta = $conexion->query("SELECT cantidad FROM carrito WHERE nombre='$nombre'");
+            $prodC = $consulta->fetchObject();
+            $cantidad = $prodC->cantidad+1;
+            $update= "UPDATE carrito SET cantidad='$cantidad' WHERE nombre='$nombre'";
+            $conexion->exec($update);   
+            header("Location: Ej3.php"); 
+        }
+
+        //Codigo que se utiliza al pulsar el botón de eliminar un producto para vaciar el producto del carrito
+        if (isset($_GET["eliminar"])) {
+            $nombre = $_GET["eliminar"];
+            $update= "UPDATE carrito SET cantidad=0 WHERE nombre='$nombre'";
+            $conexion->exec($update);   
+            header("Location: Ej3.php"); 
+        }
+
         //Tabla donde mostramos los productos de la base de datos mediante un select (consulta)
         echo "<table>";
-        echo "<tr class='nom'><td colspan='4'><h1>Tienda On-Line Ancá Terué</h1></td></tr>";
-        echo "<tr class='prop'><td><h2>Nombre</h2></td><td><h2>Precio</h2></td><td><h2>Imagen</h2></td></tr>";
+        echo "<tr><td colspan='4'><h1>Tienda On-Line Ancá Terué</h1></td></tr>";
+        echo "<tr><td><h2>Nombre</h2></td><td><h2>Precio</h2></td><td><h2>Imagen</h2></td></tr>";
         $consulta = $conexion->query("SELECT * FROM productos"); 
         while ($producto = $consulta->fetchObject()) {
-            echo "<tr class='cli'>";
+            echo "<tr>";
             echo "<td>".$producto->nombre."</td><td>".$producto->precio."</td><td><img src='".$producto->imagen."' alt='".$producto->nombre."'></td>";
             echo "<td>";
             echo "<form action='Ej3.php' method='get'>";
@@ -64,20 +81,29 @@ datos de los artículos se guarden en una base de datos. -->
         }
         echo "</table>";
 
-        if (isset($_GET["comprar"])) {
-
-        }
-
-        //Tabla donde mostramos los productos del carrito de la base de datos mediante un select (consulta)
+        //Tabla donde mostramos los productos del carrito de la base de datos mediante un select (consulta) con los totales de productos y precios
+        $cantidad = 0;
+        $total = 0;
         echo "<table>";
         echo "<tr class='nom'><td colspan='4'><h1>Carrito</h1></td></tr>";
         echo "<tr class='prop'><td><h2>Nombre</h2></td><td><h2>Precio</h2></td><td><h2>Imagen</h2></td><td><h2>Cantidad</h2></td></tr>";
         $consulta = $conexion->query("SELECT * FROM carrito"); 
         while ($carrito = $consulta->fetchObject()) {
-            echo "<tr class='cli'>";
-            echo "<td>".$carrito->nombre."</td><td>".$carrito->precio."</td><td><img src='".$carrito->imagen."' alt='".$carrito->nombre."'></td><td>".$producto->cantidad."</td>";
-            echo "</tr>";
+            if ($carrito->cantidad>0) {
+                $cantidad += $carrito->cantidad;
+                $total += $carrito->precio*$carrito->cantidad;
+                echo "<tr class='cli'>";
+                echo "<td>".$carrito->nombre."</td><td>".$carrito->precio."</td><td><img src='".$carrito->imagen."' alt='".$carrito->nombre."'></td><td>".$carrito->cantidad."<br><br>";
+                echo "<form action='Ej3.php' method='get'>";
+                echo "<input type='hidden' name='eliminar' value='$carrito->nombre'>";
+                echo "<input type='submit' value='Eliminar Producto'>";
+                echo "</form>";
+                echo "</tr>";    
+            }
         }
+        echo "<tr>";
+        echo "<td><h2>Precio Total: </h2></td><td><h3>$total €</h3></td><td><h2>Productos Totales: </h2></td><td><h3>$cantidad productos</h3></td>";
+        echo "</tr>";
         echo "</table>";
 
     ?>

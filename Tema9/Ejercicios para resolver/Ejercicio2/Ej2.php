@@ -85,7 +85,6 @@ permanecer inalterados en la base de datos. -->
                 $conexion->exec($insercion); 
                 header("Location: Ej2.php");   
             }
-             
         }
 
         //Borrar clientes de la base de datos

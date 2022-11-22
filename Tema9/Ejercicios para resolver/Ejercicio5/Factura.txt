@@ -1,0 +1,5 @@
+Producto                            cantidad                            Precio Total
+Cargador usb tipo C                         5                         39.95
+Funda Portatil 12'                         10                         219
+
+Cantidad Total de productos -> 15 productos      Precio Total (con el 21% de IVA) -> 313.33€

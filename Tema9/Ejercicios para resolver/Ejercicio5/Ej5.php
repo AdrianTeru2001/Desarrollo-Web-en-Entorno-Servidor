@@ -97,7 +97,6 @@ Aplica un 21% de IVA. -->
                 $conexion->exec($insercion); 
                 header("Location: Ej5.php");   
             }
-             
         }
 
         //Salta el mensaje si el artículo que se va a introducir ya existe en la base de datos

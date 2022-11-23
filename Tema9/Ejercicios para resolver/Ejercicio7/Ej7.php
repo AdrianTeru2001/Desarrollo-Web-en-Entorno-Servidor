@@ -1,6 +1,8 @@
-<!-- Ejercicio 3
-Modifica la tienda virtual realizada en el ejercicio 5 del tema 7, de tal forma que todos los 
-datos de los artículos se guarden en una base de datos. -->
+<!-- Ejercicio 7
+Modifica el ejercicio del carrito de la compra que obtenía los productos de un fichero, para que ahora estén almacenados en una 
+base de datos llamada tienda. Por tanto, la aplicación deberá recuperar todos los productos de la base de datos al inicio.
+Debe añadirse la funcionalidad que permita añadir nuevos productos en la Base de Datos, así como eliminarlos. 
+Incluir un “type file” que permita subir al servidor, el archivo de imagen correspondiente al producto nuevo que se está añadiendo. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +29,7 @@ datos de los artículos se guarden en una base de datos. -->
             height: 150px;
         }
     </style>
-    <title>Ejercicio 3</title>
+    <title>Ejercicio 7</title>
 </head>
 
 <body>
@@ -50,7 +52,7 @@ datos de los artículos se guarden en una base de datos. -->
             $cantidad = $prodC->cantidad+1;
             $update= "UPDATE carrito SET cantidad='$cantidad' WHERE nombre='$nombre'";
             $conexion->exec($update);   
-            header("Location: Ej3.php"); 
+            header("Location: Ej7.php"); 
         }
 
         //Codigo que se utiliza al pulsar el botón de eliminar un producto para vaciar el producto del carrito
@@ -58,7 +60,41 @@ datos de los artículos se guarden en una base de datos. -->
             $nombre = $_GET["eliminar"];
             $update= "UPDATE carrito SET cantidad=0 WHERE nombre='$nombre'";
             $conexion->exec($update);   
-            header("Location: Ej3.php"); 
+            header("Location: Ej7.php"); 
+        }
+
+        //Codigo que se utiliza al pulsar el botón de eliminar un producto para eliminar dicho producto de la tienda
+        if (isset($_GET["eliminarProd"])) {
+            $nombre = $_GET["eliminarProd"];
+            $delete = "DELETE FROM productos WHERE nombre='$nombre'";
+            $conexion->exec($delete);   
+            $delete = "DELETE FROM carrito WHERE nombre='$nombre'";
+            $conexion->exec($delete);   
+            header("Location: Ej7.php"); 
+        }
+
+        //Codigo para poder registrar un producto nuevo
+        if (isset($_POST["anadir"])) {
+            $nombre = $_POST["nombre"];
+            $consulta = $conexion->query("SELECT * FROM productos WHERE nombre='$nombre'");
+            $prodBD = $consulta->fetchObject();
+            if ($prodBD->nombre != $nombre) {
+                $precio = $_POST["precio"];
+                $imagen = "img/".$_FILES["imagen"]["name"];
+                move_uploaded_file($_FILES["imagen"]["tmp_name"], "$imagen");
+                $insercion = "INSERT INTO productos VALUES ('$nombre','$precio','$imagen')";
+                $conexion->exec($insercion); 
+                $insercion = "INSERT INTO carrito VALUES ('$nombre','$precio','$imagen', 0)";
+                $conexion->exec($insercion); 
+                header("Location: Ej7.php"); 
+            } else {
+                header("Location: Ej7.php?existe=1");
+            }
+        }
+
+        //Mensaje que sale cuando intentamos introducir un producto que ya existe en la base de datos
+        if (isset($_GET["existe"])) {
+            echo "<h1>El producto que quieres añadir ya existe en la tienda</h1>";
         }
 
         //Tabla donde mostramos los productos de la base de datos mediante un select (consulta)
@@ -70,13 +106,27 @@ datos de los artículos se guarden en una base de datos. -->
             echo "<tr>";
             echo "<td>".$producto->nombre."</td><td>".$producto->precio."</td><td><img src='".$producto->imagen."' alt='".$producto->nombre."'></td>";
             echo "<td>";
-            echo "<form action='Ej3.php' method='get'>";
+            echo "<form action='Ej7.php' method='get'>";
             echo "<input type='hidden' name='comprar' value='$producto->nombre'>";
             echo "<input type='submit' value='Comprar Producto'>";
+            echo "</form>";
+            echo "<br><br>";
+            echo "<form action='Ej7.php' method='get'>";
+            echo "<input type='hidden' name='eliminarProd' value='$producto->nombre'>";
+            echo "<input type='submit' value='Eliminar Producto'>";
             echo "</form>";
             echo "</td>";
             echo "</tr>";
         }
+        echo "<tr>";
+        echo "<form action='Ej7.php' method='post' enctype='multipart/form-data'>";
+        echo "<td><input type='text' name='nombre' required></td>";
+        echo "<td><input type='number' name='precio' required></td>";
+        echo "<td><input type='file' name='imagen' required></td>";
+        echo "<input type='hidden' name='anadir' value='1'>";
+        echo "<td><input type='submit' value='Registrar Producto'></td>";
+        echo "</form>";
+        echo "</tr>";
         echo "</table>";
 
         //Tabla donde mostramos los productos del carrito de la base de datos mediante un select (consulta) con los totales de productos y precios
@@ -92,7 +142,7 @@ datos de los artículos se guarden en una base de datos. -->
                 $total += $carrito->precio*$carrito->cantidad;
                 echo "<tr class='cli'>";
                 echo "<td>".$carrito->nombre."</td><td>".$carrito->precio."</td><td><img src='".$carrito->imagen."' alt='".$carrito->nombre."'></td><td>".$carrito->cantidad."<br><br>";
-                echo "<form action='Ej3.php' method='get'>";
+                echo "<form action='Ej7.php' method='get'>";
                 echo "<input type='hidden' name='eliminar' value='$carrito->nombre'>";
                 echo "<input type='submit' value='Eliminar Producto'>";
                 echo "</form>";

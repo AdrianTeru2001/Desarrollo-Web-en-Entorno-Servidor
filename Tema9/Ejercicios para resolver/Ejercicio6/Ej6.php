@@ -30,21 +30,6 @@ Todos los campos son de tipo varchar y la clave de la tabla es 'dia', ya que no 
             width: 80px;
             padding: 10px;
         }
-        .bor{
-            background-color: rgb(217, 83, 76);
-            border-radius: 10px;
-            padding: 8px;
-        }
-        .mod{
-            background-color: rgb(241, 175, 74);
-            border-radius: 10px;
-            padding: 8px;
-        }
-        .eys{
-            background-color: rgb(60, 120, 169);
-            border-radius: 10px;
-            padding: 8px;
-        }
         .nom{
             background-color: gray;
         }
@@ -54,13 +39,12 @@ Todos los campos son de tipo varchar y la clave de la tabla es 'dia', ya que no 
         .cli{
             background-color: whitesmoke;
         }
-        .bor:hover{
-            box-shadow: 2px 2px 2px black;
-            cursor: pointer;
-        }
-        .mod:hover{
-            box-shadow: 2px 2px 2px black;
-            cursor: pointer;
+        .eys{
+            background-color: lightgrey;
+            border-radius: 10px;
+            padding: 8px;
+            width: 150px;
+            font-weight: bold;
         }
         .eys:hover{
             box-shadow: 2px 2px 2px black;
@@ -82,43 +66,41 @@ Todos los campos son de tipo varchar y la clave de la tabla es 'dia', ya que no 
             die ("Error: ". $e->getMessage());
         }
 
-        //Tabla donde mostramos el horario
-        echo "<table>";
-        echo "<tr class='nom'><td colspan='10'><h1>HORARIO</h1></td></tr>";
-        /* echo "<tr class='prop'><td><h3>Código</h3></td><td><h3>Descripción</h3></td><td><h3>Precio de Compra</h3></td><td><h3>Precio de Venta</h3></td><td><h3>Margen</h3></td><td><h3>Stock</h3></td><td colspan=4></td></tr>"; */
-        $consulta = $conexion->query("SELECT * FROM horario /* ORDER BY CASE dia WHEN 'Lunes' THEN 1, WHEN 'Martes' THEN 2, WHEN 'Miercoles' THEN 3, WHEN 'Jueves' THEN4, WHEN 'Viernes' THEN 5 END */");
-        $consulta2 = $conexion->query("SELECT * FROM horario /* ORDER BY CASE dia WHEN 'Lunes' THEN 1, WHEN 'Martes' THEN 2, WHEN 'Miercoles' THEN 3, WHEN 'Jueves' THEN4, WHEN 'Viernes' THEN 5 END */");
-        //Mostramos todos los artículos
-        /* echo "<tr class='cli'>";
-        while ($horario2 = $consulta->fetchObject()) {
-            echo "<td>".$horario2->dia."</td>";
+        //Cambiamos la asignatura de la hora elegidas
+        if (isset($_GET["cambio"])) {
+            $dia = $_GET["dia"];
+            $hora = $_GET["hora"];
+            $asig = $_GET["asig"];
+            $update= "UPDATE horario SET $hora='$asig' WHERE dia='$dia'";
+            $conexion->exec($update);   
+            header("Location: Ej6.php");
         }
-        echo "</tr>"; */
-        echo "<tr class='cli'>";
-        while ($horario2 = $consulta2->fetchObject()) {
-            echo "<td>".$horario2->dia."</td>";
+
+        //Cogemos los dias y las asignaturas y las metemos en un array
+        $consulta = $conexion->query("SELECT * FROM horario");
+        $horarioArray = array();
+        $diasSemana = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"];
+        while ($horario = $consulta->fetchObject()) {
+            $horarioArray[$horario->dia] = [$horario->primera, $horario->segunda, $horario->tercera, $horario->cuarta, $horario->quinta, $horario->sexta];
+        }
+        //Tabla con el horario
+        echo "<table>";
+        echo "<tr class='nom'><td colspan='5'><h1>HORARIO</h1></td></tr>";
+        echo "<tr class='prop'>";
+        for ($i=0; $i < count($diasSemana); $i++) { 
+            echo "<td><h2>$diasSemana[$i]</h2></td>";
         }
         echo "</tr>";
-        while ($horario = $consulta->fetchObject()) {
+        for ($i=0; $i < 6; $i++) { 
             echo "<tr class='cli'>";
-            echo "<td><form action='Ej6_Cambiar.php' method='get'><input type='hidden' name='dia' value='".$horario->dia."'><input type='hidden' name='hora' value='".$horario->primera."'><input type='submit' class='eys' value='".$horario->primera."'></form></td>";
-            echo "</tr>";
-            echo "<tr class='cli'>";
-            echo "<td><form action='Ej6_Cambiar.php' method='get'><input type='hidden' name='dia' value='".$horario->dia."'><input type='hidden' name='hora' value='".$horario->segunda."'><input type='submit' class='eys' value='".$horario->segunda."'></form></td>";
-            echo "</tr>";
-            echo "<tr class='cli'>";
-            echo "<td><form action='Ej6_Cambiar.php' method='get'><input type='hidden' name='dia' value='".$horario->dia."'><input type='hidden' name='hora' value='".$horario->tercera."'><input type='submit' class='eys' value='".$horario->tercera."'></form></td>";
-            echo "</tr>";
-            echo "<tr class='cli'>";
-            echo "<td><form action='Ej6_Cambiar.php' method='get'><input type='hidden' name='dia' value='".$horario->dia."'><input type='hidden' name='hora' value='".$horario->cuarta."'><input type='submit' class='eys' value='".$horario->cuarta."'></form></td>";
-            echo "</tr>";
-            echo "<tr class='cli'>";
-            echo "<td><form action='Ej6_Cambiar.php' method='get'><input type='hidden' name='dia' value='".$horario->dia."'><input type='hidden' name='hora' value='".$horario->quinta."'><input type='submit' class='eys' value='".$horario->quinta."'></form></td>";
-            echo "</tr>";
-            echo "<tr class='cli'>";
-            echo "<td><form action='Ej6_Cambiar.php' method='get'><input type='hidden' name='dia' value='".$horario->dia."'><input type='hidden' name='hora' value='".$horario->sexta."'><input type='submit' class='eys' value='".$horario->sexta."'></form></td>";
+                echo "<td><form action='Ej6_Cambiar.php' method='get'><input type='hidden' name='dia' value='".$diasSemana[0]."'><input type='hidden' name='hora' value='".$i."'><input type='submit' class='eys' value='".$horarioArray[$diasSemana[0]][$i]."'></form></td>";
+                echo "<td><form action='Ej6_Cambiar.php' method='get'><input type='hidden' name='dia' value='".$diasSemana[1]."'><input type='hidden' name='hora' value='".$i."'><input type='submit' class='eys' value='".$horarioArray[$diasSemana[1]][$i]."'></form></td>";
+                echo "<td><form action='Ej6_Cambiar.php' method='get'><input type='hidden' name='dia' value='".$diasSemana[2]."'><input type='hidden' name='hora' value='".$i."'><input type='submit' class='eys' value='".$horarioArray[$diasSemana[2]][$i]."'></form></td>";
+                echo "<td><form action='Ej6_Cambiar.php' method='get'><input type='hidden' name='dia' value='".$diasSemana[3]."'><input type='hidden' name='hora' value='".$i."'><input type='submit' class='eys' value='".$horarioArray[$diasSemana[3]][$i]."'></form></td>";
+                echo "<td><form action='Ej6_Cambiar.php' method='get'><input type='hidden' name='dia' value='".$diasSemana[4]."'><input type='hidden' name='hora' value='".$i."'><input type='submit' class='eys' value='".$horarioArray[$diasSemana[4]][$i]."'></form></td>";
             echo "</tr>";
         }
+        echo "</table>";
 
     ?>
 

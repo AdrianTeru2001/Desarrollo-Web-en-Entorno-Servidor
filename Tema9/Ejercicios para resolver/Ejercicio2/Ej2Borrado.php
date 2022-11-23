@@ -43,6 +43,7 @@
 
 <body>
     
+    <!-- Código para confirmar el borrado o no del cliente -->
     <?php $dni = $_GET["dni"] ?>
     <h1>¿Estás segundo de borrar al usuario con DNI "<?php echo $dni ?>"?:</h1>
     <div>

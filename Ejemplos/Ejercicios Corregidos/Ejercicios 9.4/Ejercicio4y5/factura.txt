@@ -1,0 +1,6 @@
+FACTURA DE COMPRA 
+
+CODIGO 	 DESCRIPCION 			 PRECIO 	 PRECIO CON IVA
+1	 Varilla roscada 0.50m.		 13.00		 15.73
+
+total a pagar iva incluido: 15.73

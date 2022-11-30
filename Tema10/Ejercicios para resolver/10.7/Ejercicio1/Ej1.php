@@ -42,7 +42,6 @@ Plantear un segundo método que imprima el nombre y un mensaje si debe o no paga
         $empleado3->muestra();
         $empleado4->muestra();
 
-    
     ?>
 
 </body>

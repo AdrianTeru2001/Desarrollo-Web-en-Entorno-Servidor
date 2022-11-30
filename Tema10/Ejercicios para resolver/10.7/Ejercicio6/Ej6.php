@@ -84,15 +84,11 @@ de las subclases. Prueba las clases creadas mediante una aplicación que realice
         echo "<h3>Kilometros totales de todos los vehiculos: </h3>";
         $bici1->verKmTotal();
         echo "<br>";
-        /* $coche1->verKmTotal();
-        echo "<br><br>"; */
 
         //Mostramos el número de vehiculos creados
         echo "<h3>Número de vehiculos creados: </h3>";
         $bici1->verVehiculosCreados();
         echo "<br>";
-        /* $coche1->verVehiculosCreados();
-        echo "<br><br>"; */
 
         //Quemamos ruedas y hacemos caballitos
         echo "<h3>Hacemos caballitos con las bicis: </h3>";

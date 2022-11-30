@@ -17,14 +17,17 @@ Realiza una aplicación que permita tirar un cubilete con cinco dados de poker. 
     
     <?php 
     
+        //Incluimos la clase DadoPoker
         include_once "DadoPoker.php";
 
+        //Creamos los dados
         $dado1 = new DadoPoker();
         $dado2 = new DadoPoker();
         $dado3 = new DadoPoker();
         $dado4 = new DadoPoker();
         $dado5 = new DadoPoker();
 
+        //Tiramos los dados
         echo "<h3>Tiramos los dados de poker</h3>";
         $dado1->tira();
         $dado2->tira();
@@ -32,6 +35,7 @@ Realiza una aplicación que permita tirar un cubilete con cinco dados de poker. 
         $dado4->tira();
         $dado5->tira();
 
+        //Mostramos lo que nos ha salido en los dados
         echo "<h3>Mostramos los dados: </h3>";
         $dado1->nombreFigura();
         echo "<br>";
@@ -43,6 +47,7 @@ Realiza una aplicación que permita tirar un cubilete con cinco dados de poker. 
         echo "<br>";
         $dado5->nombreFigura();
 
+        //Mostramos el número total de tiradas de dado
         echo "<h3>Número total de tiradas de dado -> ",$dado1->getTiradasTotales()," </h3>";
 
     ?>

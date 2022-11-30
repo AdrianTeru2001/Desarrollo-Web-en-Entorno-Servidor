@@ -34,7 +34,6 @@
             }
 
             public function caballitoBici(){
-                /* echo "Haciendo caballito "; */
                 if ($this->caballitos < 4) {
                     $this->caballitos++;
                     echo "Haciendo caballito";

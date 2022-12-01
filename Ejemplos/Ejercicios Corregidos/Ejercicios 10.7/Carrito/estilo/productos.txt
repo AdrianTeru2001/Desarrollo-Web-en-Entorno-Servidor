@@ -1,0 +1,4 @@
+raton-6
+teclado-11
+monitor-80
+joystick-33

@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <title>Listado de ofertas</title>
   </head>
+
   <body>
+
   <h1>Pizzeria Peachepe/kebab</h1>
   <a href="../Controller/nuevaOferta.php">Nueva oferta</a>
   <hr>
@@ -18,5 +20,7 @@
     <?php
     }
   ?>
+
   </body>
+  
 </html>

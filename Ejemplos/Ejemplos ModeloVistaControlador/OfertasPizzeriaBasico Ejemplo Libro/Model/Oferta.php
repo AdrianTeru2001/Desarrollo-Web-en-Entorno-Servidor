@@ -31,6 +31,9 @@ class Oferta {
     return $this->descripcion;
   }  
   
+
+
+
   public function insert() {
     $conexion = PizzeriaDB::connectDB();
     $insercion = "INSERT INTO oferta (titulo, imagen, descripcion) VALUES (\"".$this->titulo."\", \"".$this->imagen."\", \"".$this->descripcion."\")";
@@ -42,6 +45,9 @@ class Oferta {
     $borrado = "DELETE FROM oferta WHERE id=\"".$this->id."\"";
     $conexion->exec($borrado);
   }
+
+
+  
   
   public static function getOfertas() {
     $conexion = PizzeriaDB::connectDB();

@@ -1,4 +1,4 @@
-<!-- Blog Ejercicio 1 -->
+<!-- Blog Ejercicio 2 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

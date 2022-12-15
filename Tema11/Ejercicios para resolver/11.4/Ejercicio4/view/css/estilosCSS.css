@@ -1,0 +1,162 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.alumnos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.listadoH1{
+    height: 80px;
+    width: 500px;
+    line-height: 80px;
+    font-size: 60px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.listadoAAH1{
+    height: 80px;
+    width: 900px;
+    line-height: 80px;
+    font-size: 60px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.listadoAsigH1{
+    height: 80px;
+    width: 600px;
+    line-height: 80px;
+    font-size: 60px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.listadoAlumnos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.alumnoH1{
+    height: 60px;
+    width: 200px;
+    line-height: 60px;
+    font-size: 40px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.alumnoAAH1{
+    height: 60px;
+    width: 700px;
+    line-height: 60px;
+    font-size: 40px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.asignaturaH1{
+    height: 60px;
+    width: 230px;
+    line-height: 60px;
+    font-size: 40px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.footer{
+    height: 40px;
+    width: 400px;
+    line-height: 40px;
+    border-radius: 10px;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.boton{
+    height: 50px;
+    width: 130px;
+    line-height: 50px;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.botonC{
+    height: 80px;
+    width: 240px;
+    line-height: 80px;
+    font-size: 50px;
+    background-color: crimson;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.botonP{
+    height: 20px;
+    width: 120px;
+    line-height: 20px;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.botonDet{
+    height: 20px;
+    width: 120px;
+    line-height: 20px;
+    background-color: crimson;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.botonAsig{
+    height: 50px;
+    width: 180px;
+    line-height: 50px;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.formularioH1{
+    height: 100px;
+    width: 500px;
+    line-height: 100px;
+}

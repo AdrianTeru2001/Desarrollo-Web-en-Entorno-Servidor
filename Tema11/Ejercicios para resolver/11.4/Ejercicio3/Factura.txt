@@ -1,0 +1,9 @@
+Factura
+-------
+Playstation 5
+Cantidad -> 111
+-------
+Nintendo
+Cantidad -> 40
+-------
+Total -> 63389€

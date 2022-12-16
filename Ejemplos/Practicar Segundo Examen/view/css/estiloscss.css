@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* body{
+    background-color: gray;
+} */
+
+/* Tablas */
+table{
+    border: 1px solid black;
+    text-align: center;
+    /* margin: auto; */
+}
+
+.tabla1{
+    float: left;
+    margin-left: 20px;
+}
+
+.tabla2{
+    margin-left: 700px;
+}
+
+tr, td{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+/* BotonAñadir */
+.boton{
+    width: 180px;
+    height: 30px;
+    line-height: 30px;
+    margin: auto;
+    border-radius: 8px;
+}
+
+.botonA{
+    background-color: gray;
+}
+
+.botonC{
+    width: 140px;
+    background-color: cornflowerblue;
+    margin-bottom: 10px;
+}
+
+.botonR{
+    width: 140px;
+    background-color: orange;
+    margin-bottom: 10px;
+}
+
+.botonB{
+    width: 140px;
+    background-color: red;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+/* Borrar Producto */
+.contenidoBorrar{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}
+
+.si{
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    font-size: 40px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.no{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    font-size: 40px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+}

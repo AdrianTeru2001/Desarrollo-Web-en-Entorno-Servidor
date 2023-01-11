@@ -1,0 +1,6 @@
+FACTURA DE COMPRA 
+
+CODIGO 	 PRODUCTO 		 CANTIDAD 	 PRECIO 	 IMPORTE
+------------------------------------------------------
+Base imponible: 0
+Importe total con IVA: 0 €

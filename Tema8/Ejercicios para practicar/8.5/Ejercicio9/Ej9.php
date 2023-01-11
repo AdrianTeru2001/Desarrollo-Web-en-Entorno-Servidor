@@ -1,22 +1,47 @@
-<!-- Ejercicio 9.
-Escribe un programa que guarde en un fichero el contenido de otros dos ficheros, de tal forma que en 
-el fichero resultante aparezcan las líneas de los primeros dos ficheros mezcladas, es decir, la primera 
-línea será del primer fichero, la segunda será del segundo fichero, la tercera será la siguiente del primer fichero, etc. 
-Los nombres de los dos ficheros origen y el nombre del fichero destino se deben pasar a través de un formulario. 
-Hay que tener en cuenta que los ficheros de donde se van cogiendo las líneas pueden tener tamaños diferentes. -->
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 9</title>
-</head>
-
-<body>
-    
-
-
-</body>
-
+<html>
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<h2>Uniendo dos ficheros en uno</h2>
+		<form action="" method="post">
+			Primer fichero: <input type="text" name="f1" required><br>
+			Segundo fichero: <input type="text" name="f2" required><br>
+			<input type="submit" value="Unir ficheros">
+		</form><br>
+		<?php
+			if (isset($_POST['f1'])) {
+				if (file_exists("Ficheros/".$_POST['f1']) && file_exists("Ficheros/".$_POST['f2'])) {
+					if (count(file("Ficheros/".$_POST['f1']))>=count(file("Ficheros/".$_POST['f2']))) {
+						$lineasfmenor=count(file("Ficheros/".$_POST['f2']));
+					} else {
+						$lineasfmenor=count(file("Ficheros/".$_POST['f1']));
+					}
+					$fichero1 = fopen("Ficheros/".$_POST['f1'], "r");
+					$fichero2 = fopen("Ficheros/".$_POST['f2'], "r");
+					$resultante = fopen("Ficheros/MezclaFicheros.txt", "w");
+					for ($i=0; $i < $lineasfmenor; $i++) {
+						fputs($resultante, fgets($fichero1));
+						echo "pasa<br>";
+						fputs($resultante, fgets($fichero2));
+						echo "pasa<br>";
+					}
+					while (!feof($fichero1)) {
+						fputs($resultante, fgets($fichero1));
+						echo "pasa<br>";
+					}
+					while (!feof($fichero2)) {
+						fputs($resultante, fgets($fichero2));
+						echo "pasa<br>";
+					}
+					fclose($fichero1);
+					fclose($fichero2);
+					fclose($resultante);
+				} else {
+					echo "Alguno de los ficheros no existe.";
+				}
+			}
+		?>
+	</body>
 </html>

@@ -53,7 +53,7 @@ if ($metodo == 'GET') {
       $mensaje = "PRODUCTO NO ENCONTRADO";
       $codEstado=404;
     }
-  }
+}
   $devolver['mensaje'] = $mensaje;
   $devolver['codEstado'] = $codEstado;
   //setCabecera($codEstado,$mensaje); 

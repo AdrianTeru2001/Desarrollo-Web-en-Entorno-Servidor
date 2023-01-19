@@ -100,7 +100,7 @@
             for ($i=1; $i <= 20; $i++) { 
                 $ingrediente = "strIngredient".$i;
                 if ($receta->meals[0]->$ingrediente!=null && $receta->meals[0]->$ingrediente!="") {
-                    echo "<strong>$i -> ".$receta->meals[0]->$ingrediente."</strong><br>";
+                    echo "<strong>".$receta->meals[0]->$ingrediente."</strong><br>";
                 }
             }
             echo "</div><div class='instruc'><h1>Instrucciones: </h1>".$receta->meals[0]->strInstructions."</div></div>";

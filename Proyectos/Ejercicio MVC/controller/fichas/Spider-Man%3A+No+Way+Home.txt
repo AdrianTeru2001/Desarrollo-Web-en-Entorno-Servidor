@@ -1,0 +1,11 @@
+Imagen -> https://m.media-amazon.com/images/M/MV5BZWMyYzFjYTYtNTRjYi00OGExLWE2YzgtOGRmYjAxZTU3NzBiXkEyXkFqcGdeQXVyMzQ0MzA0NTM@._V1_SX300.jpg
+Titulo -> Spider-Man: No Way Home
+Fecha -> 17 Dec 2021
+Duracion -> 148 min
+Genero -> Action, Adventure, Fantasy
+Director -> Jon Watts
+Actores -> Tom Holland, Zendaya, Benedict Cumberbatch
+Lenguaje -> English
+País -> United States
+Premios -> Nominated for 1 Oscar. 35 wins & 67 nominations total
+Taquilla -> $814,115,070

@@ -1,0 +1,11 @@
+Imagen -> https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_SX300.jpg
+Titulo -> Avatar: The Way of Water
+Fecha -> 16 Dec 2022
+Duracion -> 192 min
+Genero -> Action, Adventure, Fantasy
+Director -> James Cameron
+Actores -> Sam Worthington, Zoe Saldana, Sigourney Weaver
+Lenguaje -> English
+País -> United States
+Premios -> 12 wins & 45 nominations
+Taquilla -> N/A

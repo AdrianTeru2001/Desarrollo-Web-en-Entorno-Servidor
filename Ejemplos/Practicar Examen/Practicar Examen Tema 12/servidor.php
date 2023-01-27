@@ -1,5 +1,6 @@
 <?php
 
+    header("Content-Type: application/json;charset=utf-8");
     require_once "Articulos.php";
     require_once "Cuentas.php";
 
